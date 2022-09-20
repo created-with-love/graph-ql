@@ -10,7 +10,7 @@ const githubQuery = (
       viewer {
         name
       }
-      search(query: "${queryString} user:planetoftheweb sort:updated-desc", type: REPOSITORY, ${paginationKeyword}: ${pageCount}, ${paginationString}) {
+      search(query: "${queryString} user:created-with-love sort:updated-desc", type: REPOSITORY, ${paginationKeyword}: ${pageCount}, ${paginationString}) {
         repositoryCount
         edges {
           cursor

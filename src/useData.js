@@ -26,18 +26,17 @@ const useData = (query, github) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        const {viewer, search} = data?.data;
-        const repos = search.edges;
-        const total = search.repositoryCount;
-        const start = search.pageInfo?.startCursor;
-        const end = search.pageInfo?.endCursor;
-        const next = search.pageInfo?.hasNextPage;
-        const prev = search.pageInfo?.hasPreviousPage;
-
-        setUserName(viewer.name);
+        const viewer = data.data.viewer;
+        const repos = data.data.search.edges;
+        const total = data.data.search.repositoryCount;
+        const start = data.data.search.pageInfo?.startCursor;
+        const end = data.data.search.pageInfo?.endCursor;
+        const next = data.data.search.pageInfo?.hasNextPage;
+        const prev = data.data.search.pageInfo?.hasPreviousPage;
+  
+        setUserName(viewer?.name);
         setRepoList(repos);
         setTotalCount(total);
-
         setStartCursor(start);
         setEndCursor(end);
         setHasNextPage(next);
